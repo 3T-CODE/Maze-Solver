@@ -65,25 +65,25 @@ void loop() {
   // Your code is in the area below
   //--------------------------------------------------//
   //-----Example code-----//
-  if (car.getDistanceHead() < 50) {
-    if (car.getDistanceHead() < 20) {
-      car.setMotorLeft(MAX_PWM, BACKWARD);
-      car.setMotorRight(MAX_PWM, FORWARD);
-    } else {
-      car.setMotorLeft(150, FORWARD);
-      car.setMotorRight(150, FORWARD);
-    }
-  } else {
-    car.setMotorLeft(200, FORWARD);
-    car.setMotorRight(200, FORWARD);
-  }
+  // if (car.getDistanceHead() < 50) {
+  //   if (car.getDistanceHead() < 20) {
+  //     car.setMotorLeft(MAX_PWM, BACKWARD);
+  //     car.setMotorRight(MAX_PWM, FORWARD);
+  //   } else {
+  //     car.setMotorLeft(150, FORWARD);
+  //     car.setMotorRight(150, FORWARD);
+  //   }
+  // } else {
+  //   car.setMotorLeft(200, FORWARD);
+  //   car.setMotorRight(200, FORWARD);
+  // }
   
   // Use Serial Monitor or Plotter in Arduino IDE to display the values on the screen
-  Serial.print(car.getDistanceHead());
-  Serial.print(" ");
-  Serial.print(car.getSpeedLeft());
-  Serial.print(" ");
-  Serial.println(car.getSpeedRight());
+  // Serial.print(car.getDistanceHead());
+  // Serial.print(" ");
+  // Serial.print(car.getSpeedLeft());
+  // Serial.print(" ");
+  // Serial.println(car.getSpeedRight());
   //-----Example code-----//
   
   
@@ -92,3 +92,38 @@ void loop() {
   
   //--------------------------------------------------//
 }
+
+
+
+
+//----------------------------------------------------//
+//--------------------MOVE_FUNCTION-------------------//
+//----------------------------------------------------//
+int TurnLeft(int speed)
+{
+    car.setMotorLeft(speed,BACKWARD);
+    car.setMotorRight(speed,FORWARD);
+}
+
+int TurnRight(int speed)
+{
+    car.setMotorRight(speed,BACKWARD);
+    car.setMotorLeft(speed,FORWARD); 
+}
+
+int MoveForward(int speed)
+{
+    car.setMotorLeft( speed,FORWARD);
+    car.setMotorRight(speed,FORWARD);
+}
+
+int MoveBackward(int speed)
+{
+    car.setMotorLeft(speed, BACKWARD);
+    car.setMotorRight(speed,BACKWARD);
+
+}
+
+//----------------------------------------------------//
+
+
